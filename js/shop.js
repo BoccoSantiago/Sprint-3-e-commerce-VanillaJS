@@ -2,13 +2,13 @@
 var products = [
   {
     id: 1,
-    name: "Cooking Oil",
+    name: "Olive Oil",
     price: 10.5,
     type: "grocery",
   },
   {
     id: 2,
-    name: "Pasta",
+    name: "Pasta Barilla",
     price: 6.25,
     type: "grocery",
   },
@@ -20,25 +20,25 @@ var products = [
   },
   {
     id: 4,
-    name: "All-in-one",
+    name: "Anti Age",
     price: 260,
     type: "beauty",
   },
   {
     id: 5,
-    name: "Zero Make-up Kit",
+    name: "Body Cream",
     price: 20.5,
     type: "beauty",
   },
   {
     id: 6,
-    name: "Lip Tints",
+    name: "Face Cream",
     price: 12.75,
     type: "beauty",
   },
   {
     id: 7,
-    name: "Lawn Dress",
+    name: "Blue Dress",
     price: 15,
     type: "clothes",
   },
@@ -50,7 +50,7 @@ var products = [
   },
   {
     id: 9,
-    name: "Toddler Frock",
+    name: "Woman Shirt",
     price: 9.99,
     type: "clothes",
   },
@@ -164,6 +164,7 @@ function applyPromotionsCart() {
   /*  Convirtiendo FOR loop a FOR-OF  */
 
   for (let item of cart) {
+    item.subTotal = (item.price * item.quantity).toFixed(2);
     if (item.quantity >= 3 && item.id === 1) {
       let newPrice = 10;
       item.subTotalWithDiscount = newPrice * item.quantity;
@@ -235,9 +236,12 @@ function addToCart(id) {
         
       } else {
         cart.push(item);
-        cart[cart.length - 1].quantity = 1;
+        item.quantity = 1;
       }
       console.log(cart.indexOf(item) > -1)
+      console.log(cart.length)
+      console.log(cart)
+
       applyPromotionsCart();
       calculateTotal();
     }

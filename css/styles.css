@@ -226,6 +226,10 @@ sup {
   vertical-align: baseline;
 }
 
+.banner{
+  background-image: url('/images/online-shop.jpg');
+}
+
 sub {
   bottom: -0.25em;
 }
